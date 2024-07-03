@@ -4,7 +4,7 @@ require_relative '../../response'
 module Sbpayment
   module API
     module Credit
-      class UpdateCustomerTokenizedPanResponse < Request
+      class UpdateCustomerTokenizedPanRequest < Request
         class PayMethodInfo
           include ParameterDefinition
 
