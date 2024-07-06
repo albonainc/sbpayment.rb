@@ -36,7 +36,9 @@ module Sbpayment
       end
 
       class CreateCustomerTokenizedPanResponse < Response
-        DECRYPT_PARAMETERS = %i(res_pay_method_info.cardbrand_code).freeze
+        DECRYPT_PARAMETERS = %i(res_pay_method_info.tokenized_pan
+                                res_pay_method_info.cc_expiration
+                                res_pay_method_info.cardbrand_code).freeze
       end
     end
   end
