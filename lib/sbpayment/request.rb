@@ -38,14 +38,12 @@ module Sbpayment
 
       update_sps_hashcode
 
-      # リクエストデータを出力
-      puts "sbpayment request faraday_options: #{faraday_options}"
-      puts "sbpayment request use: #{connection.use}"
-      puts "sbpayment request: #{connection.request}"
-      puts "sbpayment request adapter: #{connection.adapter}"
-      puts "sbpayment request proxy: #{connection.proxy}"
-
       response = connection.post Sbpayment::API_PATH, to_sbps_xml(need_encrypt: need_encrypt?), DEFAULT_HEADERS
+
+      # リクエストデータを出力
+      puts "sbpayment request url: #{response.env.url}"
+      puts "sbpayment request headers: #{response.env.request_headers}"
+      puts "sbpayment request body: #{response.env.body}"
 
       # レスポンスデータを出力
       puts "sbpayment response status: #{response.status}"
