@@ -43,7 +43,7 @@ module Sbpayment
       # リクエストデータを出力
       puts "sbpayment request url: #{response.env.url}"
       puts "sbpayment request headers: #{response.env.request_headers}"
-      puts "sbpayment request body: #{response.env}"
+      puts "sbpayment request body: #{response.env.request_body}"
 
       # レスポンスデータを出力
       puts "sbpayment response status: #{response.status}"
