@@ -39,9 +39,13 @@ module Sbpayment
       update_sps_hashcode
 
       # リクエストデータを出力
-      puts connection
+      puts "sbpayment request: #{connection}"
 
       response = connection.post Sbpayment::API_PATH, to_sbps_xml(need_encrypt: need_encrypt?), DEFAULT_HEADERS
+
+      # レスポンスデータを出力
+      puts "sbpayment response: #{response}"
+
       response_class.new response.status, response.headers, response.body, need_decrypt: need_encrypt?
     end
 
