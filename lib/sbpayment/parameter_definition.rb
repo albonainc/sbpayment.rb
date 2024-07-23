@@ -121,7 +121,7 @@ module Sbpayment
       end
 
       def cast_for_hashcode(value)
-        (value || default).to_s.encode('Shift_JIS')
+        (value || default).to_s.encode('Shift_JIS', undef: :replace, replace: '?')
       end
 
       def cast_for_xml(value, need_encrypt: false)
