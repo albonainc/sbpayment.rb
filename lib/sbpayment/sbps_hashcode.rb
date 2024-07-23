@@ -5,7 +5,7 @@ module Sbpayment
     end
 
     def generate_sps_hashcode(encoding: 'Shift_JIS', hashkey: Sbpayment.config.hashkey)
-      Digest::SHA1.hexdigest((values_for_sps_hashcode.map(&:to_s).map(&:strip).join + hashkey).encode(encoding))
+      Digest::SHA1.hexdigest((values_for_sps_hashcode.map(&:to_s).map(&:strip).join + hashkey).encode(encoding, undef: :replace, replace: '?'))
     end
 
     def values_for_sps_hashcode
